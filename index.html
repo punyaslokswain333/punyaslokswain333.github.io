@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+        </head>
+<body>
+
+<section class="login-page">
+  	 <form>
+  	 	 <div class="box">
+  	 	 	   <div class="form-head">
+  	 	 	   	  <h2>Member Login</h2>
+  	 	 	   </div>
+  	 	 	   <div class="form-body">
+  	 	 	   	  <input type="email" id="emailk" placeholder="Enter email" />
+                    <input type="password" id="password" placeholder="Enter Password" />
+  	 	 	   </div>
+  	 	 	   <div class="form-footer" >
+  	 	 	   	  <p id="getl" style="cursor: pointer;color: gold ;" >Sign In</p>
+                   <a style="cursor: pointer; text-decoration: none; color: aliceblue;" href="ki.html" target="_self">New user</a>
+  	 	 	   </div>
+  	 	 </div>
+  	 </form>
+  </section>
+
+
+<script>
+    var c=0;
+        var lk,lon;
+    
+ 
+ document.getElementById("getl").addEventListener("click",getLocation);
+    
+  
+function getLocation() {
+ var cordiref= firebase.database().ref("cordi/");
+        cordiref.orderByChild("email").equalTo(document.getElementById("emailk").value).on("child_added", function(data){
+          var newVok= data.val();
+            var ty=newVok.email;
+                var uh=newVok.newpassword;
+            if(ty==document.getElementById("emailk").value && uh==document.getElementById("password").value)
+                {
+                    var hq=0;
+                    var lq=0;
+                    sessionStorage.setItem("emkey",ty);
+                    sessionStorage.setItem("gjk",hq);
+                     sessionStorage.setItem("tjk",lq);
+                    
+                     
+                    window.open('practice.html','_self');
+                }
+            else
+                {
+                    
+                     window.open('index.html','_self');
+                }
+            });
+}
+    
+</script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+    var config = {
+    apiKey: "AIzaSyA17Lt8Lan6mxowJ8WVHut7XZflvxj1Bw0",
+    authDomain: "final-d0048.firebaseapp.com",
+    databaseURL: "https://final-d0048.firebaseio.com",
+    projectId: "final-d0048",
+    storageBucket: "final-d0048.appspot.com",
+    messagingSenderId: "992926141763",
+    appId: "1:992926141763:web:7f98aed547ac8f8322f3f6",
+    measurementId: "G-9BLNTXGWT1"
+  };
+     firebase.initializeApp(config);
+    console.log(firebase);
+  
+    
+    
+      // Set the configuration for your app
+  // TODO: Replace with your project's config object
+  
+ 
+
+  // Get a reference to the database service
+  
+        
+</script>
+
+</body>
+</html>
