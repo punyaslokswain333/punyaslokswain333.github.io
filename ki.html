@@ -63,7 +63,16 @@ function showPosition(position) {
         
     }
      kpliref.push(data);
-    window.open('index.html');
+    control();
+     function control()
+    {
+        setTimeout(kj,2000);
+        function kj(){
+            window.open('index.html','_self');
+        }
+    }
+    
+     
 }
 
 function showError(error) {
