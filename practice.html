@@ -7,6 +7,7 @@
   <title>app</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
+        <meta http-equiv="refresh" content="5">
 
   <!-- Favicons -->
   <link href="assets/img/icell_black.png" rel="icon">
@@ -409,7 +410,7 @@
         
         function getLocationhj() {
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition, showError);
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
   } else { 
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
